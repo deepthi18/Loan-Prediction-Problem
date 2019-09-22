@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-x=pd.read_csv("https://github.com/deepthi18/Loan-Prediction-Problem/blob/master/train.csv")
+x=pd.read_csv("train.csv")
 
 y=x.loc[:,"Loan_Status"]
 x=x.drop("Loan_Status",axis=1)
 x=x.drop("Loan_ID",axis=1)
 
 #import test dataset
-x_test=pd.read_csv("https://github.com/deepthi18/Loan-Prediction-Problem/blob/master/test.csv")
+x_test=pd.read_csv("test.csv")
 x_test
 indexTest=x_test.loc[:,"Loan_ID"]
 x_test=x_test.drop("Loan_ID",axis=1)
@@ -98,4 +98,4 @@ a3=accuracy_score(y_test,y_pred3)
 cm=confusion_matrix(y_test,y_pred)
 y_realpred=classifier.predict(x_test)
 df=pd.DataFrame({"Loan_ID":indexTest,"Loan_Status":y_realpred})
-df.to_csv("https://github.com/deepthi18/Loan-Prediction-Problem/blob/master/sample_submission1.csv",index=False)     
+df.to_csv("sample_submission1.csv",index=False)     
